@@ -1,0 +1,117 @@
+
+- CREATE TABLE CUSTOMER
+
+create table customer (
+	id serial primary key,
+	email varchar(50) unique,
+	first_name varchar(20),
+	last_name varchar(20),
+	address text,
+	country varchar(20),
+	state varchar(20),
+	city varchar(20),
+	pincode int,
+	phone varchar(20),
+	password varchar(20),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	
+)
+
+- CREATE TABLE PRODUCT
+
+create table product (
+	id serial primary key,
+	name varchar(20),
+	description text,
+	price decimal(10,2),
+	color varchar(20),
+	size varchar(5),
+	category_id int,
+	stock_quantity int,
+	image_url varchar(200),
+	foreign key (category_id) references category(id)
+)
+
+- CREATE TABLE CATEGORY 
+
+create table category (
+	id serial primary key,
+	name varchar(20),
+	description text,
+)
+
+- CREATE TABLE ORDERS
+
+create table orders (
+	id serial primary key,
+	customer_id int,
+	order_date Date,
+	payment_method varchar(50),
+	status varchar(20),
+	foreign key (customer_id) references customer(id)
+)
+
+- CREATE TABLE ORDERS_DETAILS
+
+create table orders_details (
+	id serial primary key,
+	order_id int,
+	product_id int,
+	quantity int,
+	foreign key (order_id) references orders(id) on delete cascade,
+	foreign key (product_id) references product(id) on delete cascade
+)
+
+- CREATE TABLE REVIEWS
+
+create table reviews (
+	id serial primary key,
+	customer_id int,
+	product_id int,
+	rating int,
+	comment text,
+	foreign key (customer_id) references customer(id),
+	foreign key (product_id) references product(id),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+- CREATE TABLE SHIPPING METHODS
+
+create table shipping_methods (
+	id serial primary key,
+	shipping_method varchar(20),
+	estimate_delivery_time varchar(20)
+)
+
+- CREATE TABLE PAYMENT METHODS
+
+create table payment_methods (
+	id serial primary key,
+	method_name varchar(20)
+)
+
+- CREATE TABLE COLOR 
+CREATE TABLE color (
+	id serial primary key,
+	name varchar(20)
+)
+
+- CREATE TABLE SIZE 
+CREATE TABLE sizes (
+	id serial primary key,
+	name varchar(20)
+)
+
+- CREATE TABLE PRODUCT_DETAILS
+CREATE TABLE product_details (
+	id serial primary key,
+	product_id int,
+	color_id int,
+	size_id int,
+	quantity int,
+	FOREIGN KEY (product_id) REFERENCES product(id),
+	FOREIGN KEY (color_id) REFERENCES color(id),
+	FOREIGN KEY (size_id) REFERENCES sizes(id)
+)
