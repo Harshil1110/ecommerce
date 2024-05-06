@@ -45,6 +45,7 @@ const Checkout = () => {
     } catch (error) {
       console.log(error);
     }
+    // console.log(data);
   };
   // console.log(inputdata);
   const totalPrice = details.reduce((total, item) => {
@@ -248,6 +249,8 @@ const Checkout = () => {
                         className="custom-control-input"
                         name="payment"
                         id="paypal"
+                        value="paypal"
+                        {...register("payment", { required: true })}
                       />
                       <label className="custom-control-label" htmlFor="paypal">
                         Paypal
@@ -260,13 +263,12 @@ const Checkout = () => {
                         type="radio"
                         className="custom-control-input"
                         name="payment"
-                        id="directcheck"
+                        id="cash"
+                        value="cod"
+                        {...register("payment", { required: true })}
                       />
-                      <label
-                        className="custom-control-label"
-                        htmlFor="directcheck"
-                      >
-                        Direct Check
+                      <label className="custom-control-label" htmlFor="cash">
+                        Cash on delivery
                       </label>
                     </div>
                   </div>
@@ -276,16 +278,18 @@ const Checkout = () => {
                         type="radio"
                         className="custom-control-input"
                         name="payment"
-                        id="banktransfer"
+                        id="upi"
+                        value="upi"
+                        {...register("payment", { required: true })}
                       />
-                      <label
-                        className="custom-control-label"
-                        htmlFor="banktransfer"
-                      >
-                        Bank Transfer
+                      <label className="custom-control-label" htmlFor="upi">
+                        UPI
                       </label>
                     </div>
                   </div>
+                  {errors.payment && (
+                    <p className="p">This field is required</p>
+                  )}
                 </div>
                 <div className="card-footer border-secondary bg-transparent">
                   <button className="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">

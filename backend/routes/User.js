@@ -124,6 +124,12 @@ router.post("/order", async (req, res) => {
     console.log("Inserted order detail:", orderDetail);
   }
 
+  //add payment method in payment table
+  await db.query(
+    "INSERT INTO payment_methods (method_name,order_id) VALUES ($1, $2)",
+    [data.payment, orders.id]
+  );
+
   // Assuming you're using PostgreSQL and your database library supports parameterized queries
 
   // Execute an UPDATE query to update the quantity in product_details table
