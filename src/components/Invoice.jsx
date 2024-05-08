@@ -1,6 +1,7 @@
 import React from "react";
 import "./invoice.css";
-const Invoice = () => {
+const Invoice = ({ od, cd }) => {
+  console.log(od, cd);
   return (
     <>
       <div className="invoice">

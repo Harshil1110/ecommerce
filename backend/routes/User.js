@@ -157,7 +157,14 @@ router.post("/order", async (req, res) => {
   //remove items from cart
   await db.query("DELETE FROM cart WHERE user_id = $1", [customer_id]);
   console.log("ORDER:", orders);
-  res.json({ success: true });
+
+  //get details for invoice
+  const response = await db.query(
+    "select product.name,od.quantity,od.price, orders.total_amount from orders_details as od inner join orders on od.order_id = orders.id inner join product on product.id = od.product_id where customer_id = $1",
+    [customer_id]
+  );
+  const allOrders = response.rows[0];
+  res.json({ success: true, od: allOrders });
 });
 //get all customers
 router.get("/editprofile/:id", async (req, res) => {

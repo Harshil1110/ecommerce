@@ -16,6 +16,7 @@ import Forgot_Password from "./components/Forgot_Password";
 import Resetpassword from "./components/Resetpassword";
 import Change_Password from "./components/Change_Password";
 import Check_otp from "./components/Check_otp";
+import Invoice from "./components/Invoice";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/resetpassword" element={<Resetpassword />} />
           <Route path="/changepassword" element={<Change_Password />} />
           <Route path="/checkotp" element={<Check_otp />} />
+          <Route path="/invoice" element={<Invoice/>} />
           {/* <Route path="/demo" element={<Demo1 />} /> */}
         </Routes>
         <Footer />
