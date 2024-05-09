@@ -7,6 +7,7 @@ const url = "http://localhost:5000";
 const Editprofile = () => {
   const navigate = useNavigate();
   const id = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
   const [users, setusers] = useState([]);
   const {
     register,
@@ -34,13 +35,16 @@ const Editprofile = () => {
   // console.log(inputdata);
   useEffect(() => {
     axios
-      .get(`${url}/user/editprofile/${id}`)
+      .get(`${url}/user/editprofile/${id}`, {
+        headers: { authorization: token },
+      })
       .then((res) => {
-        // console.log(res.data);
+        // console.log(error);
         setusers(res.data);
+        // console.log(res.data.error);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data.error);
       });
   }, []);
   return (

@@ -164,10 +164,10 @@ router.post("/order", async (req, res) => {
     [customer_id]
   );
   const allOrders = response.rows[0];
-  res.json({ success: true, od: allOrders });
+  res.json({ success: true, od: allOrders, cd: details });
 });
 //get all customers
-router.get("/editprofile/:id", async (req, res) => {
+router.get("/editprofile/:id", verifyuser, async (req, res) => {
   const response = await db.query("SELECT * FROM customer WHERE id = $1", [
     req.params.id,
   ]);
@@ -355,4 +355,20 @@ router.put("/changepassword/:id", async (req, res) => {
   });
 });
 
+function verifyuser(req, res, next) {
+  const token = req.headers["authorization"];
+  // console.log(token);
+  if (!token) {
+    return res.status(400).json({ error: "Unauthorize user" });
+  }
+  jwt.verify(token, process.env.SESSION_SECRET, async (err, decode) => {
+    if (err) {
+      return res.status(400).json({ error: "Unauthorize user" });
+    }
+    // console.log(decode);
+    // res.json(decode);
+    req.user = decode;
+    next();
+  });
+}
 module.exports = router;
