@@ -6,12 +6,7 @@ router.use(express.json());
 const morgan = require("morgan");
 router.use(morgan("dev"));
 
-router.use(
-  cors({
-    credentials: true,
-    origin: process.env.CLIENT_PORT,
-  })
-);
+router.use(cors());
 
 //add category
 router.post("/addcategory", async (req, res) => {

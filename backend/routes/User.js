@@ -11,12 +11,7 @@ router.use(morgan("dev"));
 const env = require("dotenv");
 env.config();
 const secretkey = process.env.SESSION_SECRET;
-router.use(
-  cors({
-    credentials: true,
-    origin: process.env.CLIENT_PORT,
-  })
-);
+router.use(cors());
 
 //register new user
 router.post("/register", async (req, res) => {
