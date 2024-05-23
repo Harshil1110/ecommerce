@@ -9,7 +9,7 @@ router.use(morgan("dev"));
 router.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_PORT,
   })
 );
 
