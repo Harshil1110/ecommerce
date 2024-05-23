@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Fetch_products from "./Fetch_products";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 import { Link } from "react-router-dom";
 import axios from "axios";
 const Shop = () => {

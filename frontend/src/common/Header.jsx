@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Header = () => {
   const [categories, setCategories] = useState([]);
   console.log("component rendered");

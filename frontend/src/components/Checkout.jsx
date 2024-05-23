@@ -3,7 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import Fetch_products from "./Fetch_products";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Checkout = () => {
   const navigate = useNavigate();
   const [details, setDetails] = useState([]);

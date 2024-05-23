@@ -3,7 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Editprofile = () => {
   const navigate = useNavigate();
   const id = localStorage.getItem("id");

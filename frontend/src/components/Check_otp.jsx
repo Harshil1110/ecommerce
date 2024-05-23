@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Check_otp = () => {
   const navigate = useNavigate();
   const {

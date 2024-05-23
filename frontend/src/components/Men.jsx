@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Fetch_products from "./Fetch_products";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Men = () => {
   const [data] = Fetch_products(`${url}/product/allproducts`);
   const filteredProduct = data.filter((product) => product.category_id === 1);

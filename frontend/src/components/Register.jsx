@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 const Register = () => {
   const navigate = useNavigate();
   const {

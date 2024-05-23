@@ -1,7 +1,7 @@
 import React from "react";
 import Fetch_products from "./Fetch_products";
 import { Link } from "react-router-dom";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 
 const Kids = () => {
   const [data] = Fetch_products(`${url}/product/allproducts`);

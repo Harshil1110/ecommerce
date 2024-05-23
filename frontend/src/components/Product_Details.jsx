@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { Rating } from "react-simple-star-rating";
 import { useParams, useNavigate } from "react-router-dom";
-const url = "http://localhost:5000";
+const url = "https://ecommerce-obdg.onrender.com";
 import { useForm } from "react-hook-form";
 import Ratings from "./Ratings";
 
