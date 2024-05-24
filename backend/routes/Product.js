@@ -5,7 +5,7 @@ const cors = require("cors");
 router.use(express.json());
 const morgan = require("morgan");
 router.use(morgan("dev"));
-
+env.config();
 router.use(cors());
 
 //add category
