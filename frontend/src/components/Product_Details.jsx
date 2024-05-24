@@ -86,11 +86,11 @@ const Product_Details = () => {
   const [state, dispatch] = useReducer(reducer, 1);
 
   //add to cart function
-  const handleSubmitt = (e) => {
+  const handleSubmitt = async(e) => {
     e.preventDefault();
     // console.log(`${size} ${color} ${state}`);
     try {
-      axios
+      await axios
         .post(`${url}/product/addtocart`, {
           size,
           color,
